@@ -20,7 +20,7 @@ public class LocalActor extends UntypedActor {
 	public void preStart() {
 		//Get a reference to the remote actor
 		remoteActor = getContext().actorFor(
-				"akka.tcp://RemoteNodeApp@10.211.55.5:2552/user/remoteActor");
+				"akka.tcp://RemoteNodeApp@127.0.0.1:2552/user/remoteActor");
 	}
 
 	@Override
