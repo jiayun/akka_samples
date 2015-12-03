@@ -19,12 +19,12 @@ public class Router {
                 new Address("akka.tcp", "RemoteNodeApp", "10.211.55.5", 2552)
         };
 
-        ActorRef randomRouter = _system.actorOf(new RemoteRouterConfig(new RoundRobinPool(5), addresses).props(
+        ActorRef router = _system.actorOf(new RemoteRouterConfig(new RoundRobinPool(5), addresses).props(
                 Props.create(RemoteActor.class)));
 
         for (int i = 1; i <= 10; i++) {
             // sends randomly to actors
-            randomRouter.tell("Hello " + Integer.toString(i), null);
+            router.tell("Hello " + Integer.toString(i), null);
         }
         _system.shutdown();
     }
